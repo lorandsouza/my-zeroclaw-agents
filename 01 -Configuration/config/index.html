@@ -1,0 +1,1327 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal Agent experiment log">
+      
+      
+        <meta name="author" content="Loran">
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../02-Agents/Nova/IDENTITY/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Overview - Loran's ZeroClaw Lab</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zeroclaw-configuration-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Loran&#39;s ZeroClaw Lab" class="md-header__button md-logo" aria-label="Loran's ZeroClaw Lab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Loran's ZeroClaw Lab
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Configuration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-Agents/Nova/IDENTITY/" class="md-tabs__link">
+          
+  
+  
+  Agents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../03-Journal/fixing-errors/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-Showcase/best-results/" class="md-tabs__link">
+          
+  
+  
+  Showcase
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Loran&#39;s ZeroClaw Lab" class="md-nav__button md-logo" aria-label="Loran's ZeroClaw Lab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Loran's ZeroClaw Lab
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-Agents/Nova/IDENTITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-Agents/Nova/SOUL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Soul
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-Agents/Nova/USER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-Agents/Nova/STYLE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Style
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-Journal/fixing-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Showcase
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Showcase
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-Showcase/best-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="zeroclaw-configuration-reference">ZeroClaw Configuration Reference</h1>
+<p>Sanitised configuration file for the Nova agent setup.
+All sensitive values have been replaced with placeholders.</p>
+<pre><code class="language-toml">api_key = &quot;enc2:your-api-key&quot;
+default_provider = &quot;openrouter&quot;
+default_model = &quot;anthropic/claude-3-haiku&quot;
+default_temperature = 0.7
+provider_timeout_secs = 120
+model_routes = []
+embedding_routes = []
+
+[model_providers]
+
+[extra_headers]
+
+[observability]
+backend = &quot;none&quot;
+runtime_trace_mode = &quot;none&quot;
+runtime_trace_path = &quot;state/runtime-trace.jsonl&quot;
+runtime_trace_max_entries = 200
+
+[autonomy]
+level = &quot;supervised&quot;
+workspace_only = true
+allowed_commands = [
+    &quot;git&quot;,
+    &quot;npm&quot;,
+    &quot;cargo&quot;,
+    &quot;ls&quot;,
+    &quot;cat&quot;,
+    &quot;grep&quot;,
+    &quot;find&quot;,
+    &quot;echo&quot;,
+    &quot;pwd&quot;,
+    &quot;wc&quot;,
+    &quot;head&quot;,
+    &quot;tail&quot;,
+    &quot;date&quot;,
+]
+forbidden_paths = [
+    &quot;/etc&quot;,
+    &quot;/root&quot;,
+    &quot;/home&quot;,
+    &quot;/usr&quot;,
+    &quot;/bin&quot;,
+    &quot;/sbin&quot;,
+    &quot;/lib&quot;,
+    &quot;/opt&quot;,
+    &quot;/boot&quot;,
+    &quot;/dev&quot;,
+    &quot;/proc&quot;,
+    &quot;/sys&quot;,
+    &quot;/var&quot;,
+    &quot;/tmp&quot;,
+    &quot;~/.ssh&quot;,
+    &quot;~/.gnupg&quot;,
+    &quot;~/.aws&quot;,
+    &quot;~/.config&quot;,
+]
+max_actions_per_hour = 20
+max_cost_per_day_cents = 100
+require_approval_for_medium_risk = true
+block_high_risk_commands = true
+shell_env_passthrough = []
+auto_approve = [
+    &quot;file_read&quot;,
+    &quot;file_write&quot;,
+    &quot;memory_recall&quot;,
+    &quot;cron_list&quot;,
+    &quot;cron_add&quot;,
+    &quot;cron_remove&quot;,
+    &quot;cron_update&quot;,
+    &quot;cron_run&quot;,
+    &quot;model_routing_config&quot;,
+    &quot;cron_runs&quot;,
+    &quot;delegate&quot;,
+    &quot;model_routing_config&quot;,
+    &quot;shell&quot;,
+    &quot;tool_search&quot;,
+]
+always_ask = []
+allowed_roots = []
+non_cli_excluded_tools = []
+
+[backup]
+enabled = true
+max_keep = 10
+include_dirs = [
+    &quot;config&quot;,
+    &quot;memory&quot;,
+    &quot;audit&quot;,
+    &quot;knowledge&quot;,
+]
+destination_dir = &quot;state/backups&quot;
+compress = true
+encrypt = false
+
+[data_retention]
+enabled = false
+retention_days = 90
+dry_run = false
+categories = []
+
+[cloud_ops]
+enabled = false
+default_cloud = &quot;aws&quot;
+supported_clouds = [
+    &quot;aws&quot;,
+    &quot;azure&quot;,
+    &quot;gcp&quot;,
+]
+iac_tools = [&quot;terraform&quot;]
+cost_threshold_monthly_usd = 100.0
+well_architected_frameworks = [&quot;aws-waf&quot;]
+
+[conversational_ai]
+enabled = false
+default_language = &quot;en&quot;
+supported_languages = [
+    &quot;en&quot;,
+    &quot;de&quot;,
+    &quot;fr&quot;,
+    &quot;it&quot;,
+]
+auto_detect_language = true
+escalation_confidence_threshold = 0.3
+max_conversation_turns = 50
+conversation_timeout_secs = 1800
+analytics_enabled = false
+
+[security.sandbox]
+backend = &quot;auto&quot;
+firejail_args = []
+
+[security.resources]
+max_memory_mb = 512
+max_cpu_time_seconds = 60
+max_subprocesses = 10
+memory_monitoring = true
+
+[security.audit]
+enabled = true
+log_path = &quot;audit.log&quot;
+max_size_mb = 100
+sign_events = false
+
+[security.otp]
+enabled = false
+method = &quot;totp&quot;
+token_ttl_secs = 30
+cache_valid_secs = 300
+gated_actions = [
+    &quot;shell&quot;,
+    &quot;file_write&quot;,
+    &quot;browser_open&quot;,
+    &quot;browser&quot;,
+    &quot;memory_forget&quot;,
+]
+gated_domains = []
+gated_domain_categories = []
+
+[security.estop]
+enabled = false
+state_file = &quot;~/.zeroclaw/estop-state.json&quot;
+require_otp_to_resume = true
+
+[security.nevis]
+enabled = false
+instance_url = &quot;&quot;
+realm = &quot;master&quot;
+client_id = &quot;&quot;
+token_validation = &quot;local&quot;
+role_mapping = []
+require_mfa = false
+session_timeout_secs = 3600
+
+[security_ops]
+enabled = false
+playbooks_dir = &quot;~/.zeroclaw/playbooks&quot;
+auto_triage = false
+require_approval_for_actions = true
+max_auto_severity = &quot;low&quot;
+report_output_dir = &quot;~/.zeroclaw/security-reports&quot;
+
+[runtime]
+kind = &quot;native&quot;
+
+[runtime.docker]
+image = &quot;alpine:3.20&quot;
+network = &quot;none&quot;
+memory_limit_mb = 512
+cpu_limit = 1.0
+read_only_rootfs = true
+mount_workspace = true
+allowed_workspace_roots = []
+
+[reliability]
+provider_retries = 2
+provider_backoff_ms = 500
+fallback_providers = []
+api_keys = []
+channel_initial_backoff_secs = 2
+channel_max_backoff_secs = 60
+scheduler_poll_secs = 15
+scheduler_retries = 2
+
+[reliability.model_fallbacks]
+
+[scheduler]
+enabled = true
+max_tasks = 64
+max_concurrent = 4
+
+[agent]
+compact_context = false
+max_tool_iterations = 10
+max_history_messages = 50
+max_context_tokens = 32000
+parallel_tools = false
+tool_dispatcher = &quot;auto&quot;
+tool_call_dedup_exempt = []
+tool_filter_groups = []
+
+[skills]
+open_skills_enabled = false
+prompt_injection_mode = &quot;full&quot;
+
+[query_classification]
+enabled = false
+rules = []
+
+[heartbeat]
+enabled = false
+interval_minutes = 30
+two_phase = true
+
+[cron]
+enabled = true
+max_run_history = 50
+
+[channels_config]
+cli = true
+message_timeout_secs = 300
+ack_reactions = true
+show_tool_calls = true
+session_persistence = true
+
+[channels_config.telegram]
+bot_token = &quot;enc2: bot-token&quot;
+allowed_users = [&quot;your-telegram-id&quot;]
+stream_mode = &quot;off&quot;
+draft_update_interval_ms = 1000
+interrupt_on_new_message = false
+mention_only = false
+
+[memory]
+backend = &quot;sqlite&quot;
+auto_save = true
+hygiene_enabled = true
+archive_after_days = 7
+purge_after_days = 30
+conversation_retention_days = 30
+embedding_provider = &quot;none&quot;
+embedding_model = &quot;text-embedding-3-small&quot;
+embedding_dimensions = 1536
+vector_weight = 0.7
+keyword_weight = 0.3
+min_relevance_score = 0.4
+embedding_cache_size = 10000
+chunk_max_tokens = 512
+response_cache_enabled = false
+response_cache_ttl_minutes = 60
+response_cache_max_entries = 5000
+snapshot_enabled = false
+snapshot_on_hygiene = false
+auto_hydrate = true
+
+[memory.qdrant]
+collection = &quot;zeroclaw_memories&quot;
+
+[storage.provider.config]
+provider = &quot;&quot;
+schema = &quot;public&quot;
+table = &quot;memories&quot;
+
+[tunnel]
+provider = &quot;none&quot;
+
+[gateway]
+port = 42617
+host = &quot;127.0.0.1&quot;
+require_pairing = true
+allow_public_bind = false
+paired_tokens = []
+pair_rate_limit_per_minute = 10
+webhook_rate_limit_per_minute = 60
+trust_forwarded_headers = false
+rate_limit_max_keys = 10000
+idempotency_ttl_secs = 300
+idempotency_max_keys = 10000
+
+[composio]
+enabled = false
+entity_id = &quot;default&quot;
+
+[microsoft365]
+enabled = false
+auth_flow = &quot;client_credentials&quot;
+scopes = [&quot;https://graph.microsoft.com/.default&quot;]
+token_cache_encrypted = true
+
+[secrets]
+encrypt = true
+
+[browser]
+enabled = false
+allowed_domains = []
+backend = &quot;agent_browser&quot;
+native_headless = true
+native_webdriver_url = &quot;http://127.0.0.1:9515&quot;
+
+[browser.computer_use]
+endpoint = &quot;http://127.0.0.1:8787/v1/actions&quot;
+timeout_ms = 15000
+allow_remote_endpoint = false
+window_allowlist = []
+
+[http_request]
+enabled = false
+allowed_domains = []
+max_response_size = 1000000
+timeout_secs = 30
+allow_private_hosts = false
+
+[multimodal]
+max_images = 4
+max_image_size_mb = 5
+allow_remote_fetch = false
+
+[web_fetch]
+enabled = false
+allowed_domains = [&quot;*&quot;]
+blocked_domains = []
+max_response_size = 500000
+timeout_secs = 30
+
+[web_search]
+enabled = false
+provider = &quot;duckduckgo&quot;
+max_results = 5
+timeout_secs = 15
+
+[project_intel]
+enabled = false
+default_language = &quot;en&quot;
+report_output_dir = &quot;~/.zeroclaw/project-reports&quot;
+risk_sensitivity = &quot;medium&quot;
+include_git_data = true
+include_jira_data = false
+
+[proxy]
+enabled = false
+no_proxy = []
+scope = &quot;zeroclaw&quot;
+services = []
+
+[identity]
+format = &quot;openclaw&quot;
+
+[cost]
+enabled = true
+daily_limit_usd = 5.0
+monthly_limit_usd = 20.0
+warn_at_percent = 80
+allow_override = false
+
+[cost.prices.&quot;google/gemini-2.0-flash&quot;]
+input = 0.1
+output = 0.4
+
+[cost.prices.&quot;openai/o1-preview&quot;]
+input = 15.0
+output = 60.0
+
+[cost.prices.&quot;openai/gpt-4o&quot;]
+input = 5.0
+output = 15.0
+
+[cost.prices.&quot;anthropic/claude-3-haiku&quot;]
+input = 0.25
+output = 1.25
+
+[cost.prices.&quot;anthropic/claude-sonnet-4-20250514&quot;]
+input = 3.0
+output = 15.0
+
+[cost.prices.&quot;google/gemini-1.5-pro&quot;]
+input = 1.25
+output = 5.0
+
+[cost.prices.&quot;openai/gpt-4o-mini&quot;]
+input = 0.15
+output = 0.6
+
+[cost.prices.&quot;anthropic/claude-3.5-sonnet&quot;]
+input = 3.0
+output = 15.0
+
+[cost.prices.&quot;anthropic/claude-opus-4-20250514&quot;]
+input = 15.0
+output = 75.0
+
+[peripherals]
+enabled = false
+boards = []
+
+[agents.Nova]
+provider = &quot;anthropic&quot;
+model = &quot;claude-v1&quot;
+system_prompt = &quot;You are Nova, a specialized agent for analyzing YouTube videos. Your role is to download the video, extract key information like title, description, duration, and provide a high-level summary of the video's content. You have access to the youtube__download_youtube_url tool to retrieve the video data. Please complete this task efficiently and provide a concise report.&quot;
+api_key = &quot;enc2: api-key&quot;
+max_depth = 3
+agentic = true
+allowed_tools = [
+    &quot;youtube__download_youtube_url&quot;,
+    &quot;apify-youtube__streamers--youtube-scraper&quot;,
+    &quot;apify-youtube__get-actor-output&quot;,
+]
+max_iterations = 10
+
+[swarms]
+
+[hooks]
+enabled = true
+
+[hooks.builtin]
+command_logger = false
+
+[hooks.builtin.webhook_audit]
+enabled = false
+url = &quot;&quot;
+tool_patterns = []
+include_args = false
+max_args_bytes = 4096
+
+[hardware]
+enabled = false
+transport = &quot;None&quot;
+baud_rate = 115200
+workspace_datasheets = false
+
+[transcription]
+enabled = false
+api_url = &quot;https://api.groq.com/openai/v1/audio/transcriptions&quot;
+model = &quot;whisper-large-v3-turbo&quot;
+max_duration_secs = 120
+
+[tts]
+enabled = false
+default_provider = &quot;openai&quot;
+default_voice = &quot;alloy&quot;
+default_format = &quot;mp3&quot;
+max_text_length = 4096
+
+[mcp]
+enabled = true
+deferred_loading = false
+
+[[mcp.servers]]
+name = &quot;apify-youtube&quot;
+transport = &quot;stdio&quot;
+command = &quot;npx&quot;
+args = [
+    &quot;mcp-remote&quot;,
+    &quot;https://mcp.apify.com/?tools=streamers/youtube-scraper&quot;,
+    &quot;--header&quot;,
+    &quot;Authorization: Bearer apify_api_xxxx&quot;,
+]
+
+[mcp.servers.env]
+
+[mcp.servers.headers]
+
+[nodes]
+enabled = false
+max_nodes = 16
+
+[workspace]
+enabled = false
+workspaces_dir = &quot;~/.zeroclaw/workspaces&quot;
+isolate_memory = true
+isolate_secrets = true
+isolate_audit = true
+cross_workspace_search = false
+
+[notion]
+enabled = false
+api_key = &quot;&quot;
+database_id = &quot;&quot;
+poll_interval_secs = 5
+status_property = &quot;Status&quot;
+input_property = &quot;Input&quot;
+result_property = &quot;Result&quot;
+max_concurrent = 4
+recover_stale = true
+
+[node_transport]
+enabled = true
+shared_secret = &quot;&quot;
+max_request_age_secs = 300
+require_https = true
+allowed_peers = []
+mutual_tls = false
+connection_pool_size = 4
+
+
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
