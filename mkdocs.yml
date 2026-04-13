@@ -21,6 +21,7 @@ nav:
       - Soul: 02-Agents/Nova/SOUL.md
       - User: 02-Agents/Nova/USER.md
       - Style: 02-Agents/Nova/STYLE.md
+      - Skills: 02-Agents/Nova/SKILL.md
   - Troubleshooting: 03-Journal/fixing-errors.md
   - Showcase:
       - Results: 04-Showcase/best-results.md

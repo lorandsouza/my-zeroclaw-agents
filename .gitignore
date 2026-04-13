@@ -2,3 +2,5 @@ site/
 .obsidian/
 *.log
 secrets.toml
+.DS_Store
+**/.DS_Store
