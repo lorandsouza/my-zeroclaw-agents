@@ -1,0 +1,521 @@
+# ZeroClaw Configuration Reference
+
+Sanitised configuration file for the Nova agent setup.
+All sensitive values have been replaced with placeholders.
+
+
+```toml
+api_key = "enc2:your-api-key"
+default_provider = "openrouter"
+default_model = "anthropic/claude-3-haiku"
+default_temperature = 0.7
+provider_timeout_secs = 120
+model_routes = []
+embedding_routes = []
+
+[model_providers]
+
+[extra_headers]
+
+[observability]
+backend = "none"
+runtime_trace_mode = "none"
+runtime_trace_path = "state/runtime-trace.jsonl"
+runtime_trace_max_entries = 200
+
+[autonomy]
+level = "supervised"
+workspace_only = true
+allowed_commands = [
+    "git",
+    "npm",
+    "cargo",
+    "ls",
+    "cat",
+    "grep",
+    "find",
+    "echo",
+    "pwd",
+    "wc",
+    "head",
+    "tail",
+    "date",
+]
+forbidden_paths = [
+    "/etc",
+    "/root",
+    "/home",
+    "/usr",
+    "/bin",
+    "/sbin",
+    "/lib",
+    "/opt",
+    "/boot",
+    "/dev",
+    "/proc",
+    "/sys",
+    "/var",
+    "/tmp",
+    "~/.ssh",
+    "~/.gnupg",
+    "~/.aws",
+    "~/.config",
+]
+max_actions_per_hour = 20
+max_cost_per_day_cents = 100
+require_approval_for_medium_risk = true
+block_high_risk_commands = true
+shell_env_passthrough = []
+auto_approve = [
+    "file_read",
+    "file_write",
+    "memory_recall",
+    "cron_list",
+    "cron_add",
+    "cron_remove",
+    "cron_update",
+    "cron_run",
+    "model_routing_config",
+    "cron_runs",
+    "delegate",
+    "model_routing_config",
+    "shell",
+    "tool_search",
+]
+always_ask = []
+allowed_roots = []
+non_cli_excluded_tools = []
+
+[backup]
+enabled = true
+max_keep = 10
+include_dirs = [
+    "config",
+    "memory",
+    "audit",
+    "knowledge",
+]
+destination_dir = "state/backups"
+compress = true
+encrypt = false
+
+[data_retention]
+enabled = false
+retention_days = 90
+dry_run = false
+categories = []
+
+[cloud_ops]
+enabled = false
+default_cloud = "aws"
+supported_clouds = [
+    "aws",
+    "azure",
+    "gcp",
+]
+iac_tools = ["terraform"]
+cost_threshold_monthly_usd = 100.0
+well_architected_frameworks = ["aws-waf"]
+
+[conversational_ai]
+enabled = false
+default_language = "en"
+supported_languages = [
+    "en",
+    "de",
+    "fr",
+    "it",
+]
+auto_detect_language = true
+escalation_confidence_threshold = 0.3
+max_conversation_turns = 50
+conversation_timeout_secs = 1800
+analytics_enabled = false
+
+[security.sandbox]
+backend = "auto"
+firejail_args = []
+
+[security.resources]
+max_memory_mb = 512
+max_cpu_time_seconds = 60
+max_subprocesses = 10
+memory_monitoring = true
+
+[security.audit]
+enabled = true
+log_path = "audit.log"
+max_size_mb = 100
+sign_events = false
+
+[security.otp]
+enabled = false
+method = "totp"
+token_ttl_secs = 30
+cache_valid_secs = 300
+gated_actions = [
+    "shell",
+    "file_write",
+    "browser_open",
+    "browser",
+    "memory_forget",
+]
+gated_domains = []
+gated_domain_categories = []
+
+[security.estop]
+enabled = false
+state_file = "~/.zeroclaw/estop-state.json"
+require_otp_to_resume = true
+
+[security.nevis]
+enabled = false
+instance_url = ""
+realm = "master"
+client_id = ""
+token_validation = "local"
+role_mapping = []
+require_mfa = false
+session_timeout_secs = 3600
+
+[security_ops]
+enabled = false
+playbooks_dir = "~/.zeroclaw/playbooks"
+auto_triage = false
+require_approval_for_actions = true
+max_auto_severity = "low"
+report_output_dir = "~/.zeroclaw/security-reports"
+
+[runtime]
+kind = "native"
+
+[runtime.docker]
+image = "alpine:3.20"
+network = "none"
+memory_limit_mb = 512
+cpu_limit = 1.0
+read_only_rootfs = true
+mount_workspace = true
+allowed_workspace_roots = []
+
+[reliability]
+provider_retries = 2
+provider_backoff_ms = 500
+fallback_providers = []
+api_keys = []
+channel_initial_backoff_secs = 2
+channel_max_backoff_secs = 60
+scheduler_poll_secs = 15
+scheduler_retries = 2
+
+[reliability.model_fallbacks]
+
+[scheduler]
+enabled = true
+max_tasks = 64
+max_concurrent = 4
+
+[agent]
+compact_context = false
+max_tool_iterations = 10
+max_history_messages = 50
+max_context_tokens = 32000
+parallel_tools = false
+tool_dispatcher = "auto"
+tool_call_dedup_exempt = []
+tool_filter_groups = []
+
+[skills]
+open_skills_enabled = false
+prompt_injection_mode = "full"
+
+[query_classification]
+enabled = false
+rules = []
+
+[heartbeat]
+enabled = false
+interval_minutes = 30
+two_phase = true
+
+[cron]
+enabled = true
+max_run_history = 50
+
+[channels_config]
+cli = true
+message_timeout_secs = 300
+ack_reactions = true
+show_tool_calls = true
+session_persistence = true
+
+[channels_config.telegram]
+bot_token = "enc2: bot-token"
+allowed_users = ["your-telegram-id"]
+stream_mode = "off"
+draft_update_interval_ms = 1000
+interrupt_on_new_message = false
+mention_only = false
+
+[memory]
+backend = "sqlite"
+auto_save = true
+hygiene_enabled = true
+archive_after_days = 7
+purge_after_days = 30
+conversation_retention_days = 30
+embedding_provider = "none"
+embedding_model = "text-embedding-3-small"
+embedding_dimensions = 1536
+vector_weight = 0.7
+keyword_weight = 0.3
+min_relevance_score = 0.4
+embedding_cache_size = 10000
+chunk_max_tokens = 512
+response_cache_enabled = false
+response_cache_ttl_minutes = 60
+response_cache_max_entries = 5000
+snapshot_enabled = false
+snapshot_on_hygiene = false
+auto_hydrate = true
+
+[memory.qdrant]
+collection = "zeroclaw_memories"
+
+[storage.provider.config]
+provider = ""
+schema = "public"
+table = "memories"
+
+[tunnel]
+provider = "none"
+
+[gateway]
+port = 42617
+host = "127.0.0.1"
+require_pairing = true
+allow_public_bind = false
+paired_tokens = []
+pair_rate_limit_per_minute = 10
+webhook_rate_limit_per_minute = 60
+trust_forwarded_headers = false
+rate_limit_max_keys = 10000
+idempotency_ttl_secs = 300
+idempotency_max_keys = 10000
+
+[composio]
+enabled = false
+entity_id = "default"
+
+[microsoft365]
+enabled = false
+auth_flow = "client_credentials"
+scopes = ["https://graph.microsoft.com/.default"]
+token_cache_encrypted = true
+
+[secrets]
+encrypt = true
+
+[browser]
+enabled = false
+allowed_domains = []
+backend = "agent_browser"
+native_headless = true
+native_webdriver_url = "http://127.0.0.1:9515"
+
+[browser.computer_use]
+endpoint = "http://127.0.0.1:8787/v1/actions"
+timeout_ms = 15000
+allow_remote_endpoint = false
+window_allowlist = []
+
+[http_request]
+enabled = false
+allowed_domains = []
+max_response_size = 1000000
+timeout_secs = 30
+allow_private_hosts = false
+
+[multimodal]
+max_images = 4
+max_image_size_mb = 5
+allow_remote_fetch = false
+
+[web_fetch]
+enabled = false
+allowed_domains = ["*"]
+blocked_domains = []
+max_response_size = 500000
+timeout_secs = 30
+
+[web_search]
+enabled = false
+provider = "duckduckgo"
+max_results = 5
+timeout_secs = 15
+
+[project_intel]
+enabled = false
+default_language = "en"
+report_output_dir = "~/.zeroclaw/project-reports"
+risk_sensitivity = "medium"
+include_git_data = true
+include_jira_data = false
+
+[proxy]
+enabled = false
+no_proxy = []
+scope = "zeroclaw"
+services = []
+
+[identity]
+format = "openclaw"
+
+[cost]
+enabled = true
+daily_limit_usd = 5.0
+monthly_limit_usd = 20.0
+warn_at_percent = 80
+allow_override = false
+
+[cost.prices."google/gemini-2.0-flash"]
+input = 0.1
+output = 0.4
+
+[cost.prices."openai/o1-preview"]
+input = 15.0
+output = 60.0
+
+[cost.prices."openai/gpt-4o"]
+input = 5.0
+output = 15.0
+
+[cost.prices."anthropic/claude-3-haiku"]
+input = 0.25
+output = 1.25
+
+[cost.prices."anthropic/claude-sonnet-4-20250514"]
+input = 3.0
+output = 15.0
+
+[cost.prices."google/gemini-1.5-pro"]
+input = 1.25
+output = 5.0
+
+[cost.prices."openai/gpt-4o-mini"]
+input = 0.15
+output = 0.6
+
+[cost.prices."anthropic/claude-3.5-sonnet"]
+input = 3.0
+output = 15.0
+
+[cost.prices."anthropic/claude-opus-4-20250514"]
+input = 15.0
+output = 75.0
+
+[peripherals]
+enabled = false
+boards = []
+
+[agents.Nova]
+provider = "anthropic"
+model = "claude-v1"
+system_prompt = "You are Nova, a specialized agent for analyzing YouTube videos. Your role is to download the video, extract key information like title, description, duration, and provide a high-level summary of the video's content. You have access to the youtube__download_youtube_url tool to retrieve the video data. Please complete this task efficiently and provide a concise report."
+api_key = "enc2: api-key"
+max_depth = 3
+agentic = true
+allowed_tools = [
+    "youtube__download_youtube_url",
+    "apify-youtube__streamers--youtube-scraper",
+    "apify-youtube__get-actor-output",
+]
+max_iterations = 10
+
+[swarms]
+
+[hooks]
+enabled = true
+
+[hooks.builtin]
+command_logger = false
+
+[hooks.builtin.webhook_audit]
+enabled = false
+url = ""
+tool_patterns = []
+include_args = false
+max_args_bytes = 4096
+
+[hardware]
+enabled = false
+transport = "None"
+baud_rate = 115200
+workspace_datasheets = false
+
+[transcription]
+enabled = false
+api_url = "https://api.groq.com/openai/v1/audio/transcriptions"
+model = "whisper-large-v3-turbo"
+max_duration_secs = 120
+
+[tts]
+enabled = false
+default_provider = "openai"
+default_voice = "alloy"
+default_format = "mp3"
+max_text_length = 4096
+
+[mcp]
+enabled = true
+deferred_loading = false
+
+[[mcp.servers]]
+name = "apify-youtube"
+transport = "stdio"
+command = "npx"
+args = [
+    "mcp-remote",
+    "https://mcp.apify.com/?tools=streamers/youtube-scraper",
+    "--header",
+    "Authorization: Bearer apify_api_xxxx",
+]
+
+[mcp.servers.env]
+
+[mcp.servers.headers]
+
+[nodes]
+enabled = false
+max_nodes = 16
+
+[workspace]
+enabled = false
+workspaces_dir = "~/.zeroclaw/workspaces"
+isolate_memory = true
+isolate_secrets = true
+isolate_audit = true
+cross_workspace_search = false
+
+[notion]
+enabled = false
+api_key = ""
+database_id = ""
+poll_interval_secs = 5
+status_property = "Status"
+input_property = "Input"
+result_property = "Result"
+max_concurrent = 4
+recover_stale = true
+
+[node_transport]
+enabled = true
+shared_secret = ""
+max_request_age_secs = 300
+require_https = true
+allowed_peers = []
+mutual_tls = false
+connection_pool_size = 4
+
+
+```
